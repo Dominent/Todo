@@ -1,0 +1,24 @@
+<ng-container *ngIf="loading$ | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-container>
+
+<div class="container">
+  <app-todo-create (addTodo)="addNewTodo($event)"></app-todo-create>
+
+  <mat-tab-group>
+    <mat-tab label="All">
+      <app-todo-list [todos]="todos$ | async" (changeTodoName)="changeTodoName($event)"
+        (removeTodo)="removeTodo($event)" (changeTodoStatus)="changeTodoStatus($event)"></app-todo-list>
+    </mat-tab>
+    <mat-tab label="In Progress">
+      <app-todo-list [todos]="filterTodosByStatus(statusEnum.InProgress) | async"
+        (changeTodoName)="changeTodoName($event)" (removeTodo)="removeTodo($event)"
+        (changeTodoStatus)="changeTodoStatus($event)"></app-todo-list>
+    </mat-tab>
+    <mat-tab label="Completed">
+      <app-todo-list [todos]="filterTodosByStatus(statusEnum.Complete) | async"
+        (changeTodoName)="changeTodoName($event)" (removeTodo)="removeTodo($event)"
+        (changeTodoStatus)="changeTodoStatus($event)"></app-todo-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,21 @@
+
+<ng-container *ngFor="let todo of todos">
+  <div class="todo-item">
+    <span [class.line-through]="todo.status === TodoStatus.Complete">{{ todo.name }}</span>
+    <div class="todo-actions">
+      <button matTooltip="Toggle Todo Status" mat-icon-button color="primary" aria-label="Complete"
+        (click)="changeTodoStatus.emit({ todoId: todo.id, status: todo.status})">
+        <mat-icon>done</mat-icon>
+      </button>
+
+      <button matTooltip="Delete Todo" mat-icon-button color="primary" aria-label="Delete" (click)="removeTodo.emit({ todoId: todo.id})">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <button matTooltip="Edit Todo" mat-icon-button color="primary" aria-label="Edit" (click)="changeTodoName.emit({todo})">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+  <p class="todo-item" *ngIf="!todos?.length">No todos</p>
+</ng-container>

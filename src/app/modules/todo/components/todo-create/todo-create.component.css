@@ -1,0 +1,16 @@
+.todo-list-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    justify-content: space-around;
+  }
+  
+  .todo-list-form .mat-form-field {
+    width: 300px;
+    margin-right: 20px;
+  }
+  
+  .todo-list-form .mat-raised-button {
+    margin-left: 10px;
+  }
+  

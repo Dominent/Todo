@@ -1,0 +1,11 @@
+<form [formGroup]="todoFormGroup" class="todo-list-form">
+  <mat-form-field>
+    <mat-label>Todo List Item</mat-label>
+    <input matInput placeholder="E.g. Send Email" name="name" formControlName="name">
+    <mat-error *ngIf="todoFormGroup.get('name').hasError('required')">Please enter todo name</mat-error>
+  </mat-form-field>
+  <button mat-stroked-button type="reset">Cancel</button>
+
+  <button mat-raised-button color="primary" type="submit" color="primary" [disabled]="!todoFormGroup.valid"
+    (click)="handleAddTodo(todoFormGroup.value)">Add</button>
+</form>
