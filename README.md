@@ -63,8 +63,8 @@ Please use the following libraries. Some are already installed:
     - Add Todo.
 
 - Unit Testing
-    - Code coverage around ~65%
-    - Tested mostly the store features ad being the most challenging
+    - Code coverage:  ~65%
+    - Tested mostly the store features as being the most challenging
     - Used jasmine-marbles to ease up the testing of observables. The library provides functionality to express an observable in terms of its marble diagram.
 
 - Styling
